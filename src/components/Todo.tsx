@@ -1,22 +1,28 @@
-import { type ITodo } from '../types'
+import { type TodoId, type ITodo } from '../types'
 
 interface TodoProps extends ITodo {
-  onRemoveTodo: (id: number) => void
+  onToggleCompleteTodo: ({ id, completed }: Pick<ITodo, 'id' | 'completed'>) => void
+  onRemoveTodo: ({ id }: TodoId) => void
 }
 
-export const Todo: React.FC<TodoProps> = ({ id, title, completed, onRemoveTodo }) => {
+export const Todo: React.FC<TodoProps> = ({ id, title, completed, onToggleCompleteTodo, onRemoveTodo }) => {
   return (
     <div className='view'>
       <input
         className='toggle'
         type='checkbox'
         checked={completed}
-        onChange={() => {}}
+        onChange={(event) => {
+          onToggleCompleteTodo({
+            id,
+            completed: event.target.checked
+          })
+        }}
       />
       <label>{title}</label>
       <button
         className='destroy'
-        onClick={() => {}}
+        onClick={() => { onRemoveTodo({ id }) }}
       >
 
       </button>
