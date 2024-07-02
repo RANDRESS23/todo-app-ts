@@ -7,20 +7,10 @@ import { Header } from './components/Header'
 
 const mockkTodos: ListOfTodos = [
   {
-    id: '2e552cec-e196-4e3c-916a-9e2a6a4a2056',
+    id: crypto.randomUUID(),
     title: 'Learn React',
     completed: true
   }
-  // {
-  //   id: '2e552cec-e196-4e3c-916a-9e2a6a4a2056',
-  //   title: 'Learn TypeScript',
-  //   completed: false
-  // },
-  // {
-  //   id: '3e552cec-e196-4e3c-916a-9e2a6a4a2056',
-  //   title: 'Learn IA',
-  //   completed: false
-  // }
 ]
 
 export default function App (): JSX.Element {

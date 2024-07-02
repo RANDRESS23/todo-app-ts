@@ -12,6 +12,8 @@ interface Props {
 export const Footer: React.FC<Props> = ({
   activeTodos = 0, completeTodos = 0, filterSelected, onClearCompletedTodos, handleFilterChange
 }) => {
+  if (activeTodos === 0 && completeTodos === 0) return null
+
   return (
     <footer className="footer">
       <span className='todo-count'>
