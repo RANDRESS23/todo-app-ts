@@ -66,9 +66,11 @@ export default function App (): JSX.Element {
   const completeTodos = todos.length - activeTodos
 
   return (
-    <div className='todoapp'>
+    <main className='todoapp'>
       <Header onAddTodo={handleNewTodo} />
       <Todos
+        activeTodos={activeTodos}
+        completeTodos={completeTodos}
         todos={filterTodos}
         onToggleCompleteTodo={handleCompleteTodo}
         onRemoveTodo={handleRemoveTodo}
@@ -80,6 +82,6 @@ export default function App (): JSX.Element {
         handleFilterChange={handleFilterSelected}
         onClearCompletedTodos={handleClearCompletedTodos}
       />
-    </div>
+    </main>
   )
 }
